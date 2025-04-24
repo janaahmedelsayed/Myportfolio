@@ -116,9 +116,7 @@ Css. Strong understanding of frontend architecture, component-based design, and 
           {/* IMAGE SECTION */}
           <div className="flex-1 flex justify-center items-center">
             <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-125 mt-8">
-              <img
-               src="./assets/jana.jpg"
-                alt="Jana Ahmed"
+            <img src={`${process.env.PUBLIC_URL}/assets/jana.jpg`}
                 className="w-full h-full object-cover"
               />
             </div>
