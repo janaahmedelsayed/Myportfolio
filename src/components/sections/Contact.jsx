@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser"; 
+import Swal from "sweetalert2";
+
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
@@ -21,15 +23,28 @@ export const Contact = () => {
       )
       .then(
         (result) => {
-          alert("Message sent!");
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            text: 'Thank you for contacting me. I will get back to you soon!',
+            timer: 3000,
+            showConfirmButton: false,
+          });
           setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
-          alert("Oops, something went wrong. Please try again.");
-          console.log(error.text); // Log the error for debugging
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong. Please try again later!',
+            timer: 3000,
+            showConfirmButton: false,
+          });
+          console.log(error.text);
         }
       );
   };
+  
 
   return (
     <section id="contact" className="min-h-screen flex items-center justify-center py-20">

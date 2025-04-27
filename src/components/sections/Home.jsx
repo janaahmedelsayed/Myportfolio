@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RevealOnScroll } from "../RevealOnScroll";
+import janaImage from "../../assets/jana.jpg";
 
 // Define titles outside the component for stability
 const titles = ["Hi, I'm Jana Ahmed", "Front End Developer"];
@@ -116,9 +117,8 @@ Css. Strong understanding of frontend architecture, component-based design, and 
           {/* IMAGE SECTION */}
           <div className="flex-1 flex justify-center items-center">
             <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl transition-transform duration-500 hover:scale-125 mt-8">
-            <img src={`${process.env.PUBLIC_URL}/assets/jana.jpg`}
-                className="w-full h-full object-cover"
-              />
+            <img src={janaImage} className="w-full h-full object-cover" />
+
             </div>
           </div>
 
